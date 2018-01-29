@@ -3,6 +3,9 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+// store the port to be used by the app
+// if doesn't exists, uses 3000 instead
+const port = process.env.PORT || 3000;
 // make new express app
 var app = express();
 
@@ -70,7 +73,7 @@ app.get('/bad', (req, res) => {
   });
 });
 
-// bind the app to a port on our machine, for local
-app.listen(3000, () =>{
-  console.log('Server is up on port 3000');
+// por variable for Heroko env or local
+app.listen(port, () =>{
+  console.log(`Server is up on port ${port}`);
 });
